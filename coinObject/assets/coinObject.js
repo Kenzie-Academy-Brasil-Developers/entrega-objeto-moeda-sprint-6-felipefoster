@@ -41,8 +41,11 @@ const coin = {
     }
     // Depois que o seu loop terminar, exiba o resultado na página no formato de TEXTO.
     // Além de exibir os resultados na página, não esqueça
-
-  
+    const resultado = document.createElement("div")
+    const classe = document.createAttribute("resultado")
+    .appendChild()
+    body.appendChild(results)
+    resultado.innerHTML('${results}')
     return results
     
   }
@@ -53,6 +56,9 @@ const coin = {
     for (let i = 0; i < quant; i++) {
       
   }
+
+  
+  
     // Depois que o seu loop terminar, exiba o resultado na página no formato de IMAGEM.
     // Além de exibir os resultados na página, não esqueça
     // de retornar o valor de "results".
