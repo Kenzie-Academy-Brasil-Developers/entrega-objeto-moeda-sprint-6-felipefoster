@@ -32,14 +32,14 @@ const coin = {
       image.classList.add('image')
       
       if (this.toString() === 'Heads'){
-      image.src = ".assets\img\cara.jpeg";
-      image.style.width = "50px";
-      image.style.height = "50px";
+      image.src = "assets/img/cara.jpeg";
+      image.style.width = "30px";
+      image.style.height = "30px";
       image.alt = 'Heads'
       } else if (this.toString() === 'Tails') {
-      image.src = ".assets\img\coroa.jpeg";
-      image.style.width = "10px";
-      image.style.height = "10px";
+      image.src = "assets/img/coroa.jpeg";
+      image.style.width = "30px";
+      image.style.height = "30px";
       image.alt = "Tails"
       }
       return image;
@@ -73,17 +73,28 @@ const coin = {
     return results
    
   }
+
   display20Flips()
   
   function display20Images() {
     const results = [];
+    const resultado2 = document.createElement("div")
+    document.body.appendChild(resultado2)
+    resultado2.classList.add('results2')
+    const titulo2 = document.createElement('h3')
+    titulo2.classList.add('textoResultado2')
+    titulo2.innerHTML = 'Resultado 2: '
+    resultado2.appendChild(titulo2)
+    
     // Use um loop para arremessar a moeda 20 vezes.
     for (let i = 0; i < 20; i++) {
       coin.flip()
       coin.toString()
-      results.push (coin.toHTML())
+      results.push (resultado2.appendChild(coin.toHTML()))
   }
   
+  
+
     // Depois que o seu loop terminar, exiba o resultado na página no formato de IMAGEM.
     // Além de exibir os resultados na página, não esqueça
     // de retornar o valor de "results".
