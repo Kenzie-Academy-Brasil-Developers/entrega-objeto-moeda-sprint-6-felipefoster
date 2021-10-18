@@ -1,3 +1,5 @@
+
+
 const coin = {
     state: 0,
 
@@ -22,42 +24,65 @@ const coin = {
       
     },
   
+    
     toHTML: function () {
+      
       const image = document.createElement("img");
-      // Colocar uma imagem correspondente a essa valor.
-      // image.src = "./CAMINHO/IMAGEM.JPEG"
-      // image.alt = "Heads/Tails"
+      document.body.appendChild(image)
+      image.classList.add('image')
+      
+      if (this.toString() === 'Heads'){
+      image.src = ".assets\img\cara.jpeg";
+      image.style.width = "50px";
+      image.style.height = "50px";
+      image.alt = 'Heads'
+      } else if (this.toString() === 'Tails') {
+      image.src = ".assets\img\coroa.jpeg";
+      image.style.width = "10px";
+      image.style.height = "10px";
+      image.alt = "Tails"
+      }
       return image;
     },
   };
 
+  
 
-  function display20Flips(quant) {
+  function display20Flips() {
     const results = [];
     // Use um loop para arremessar a moeda 20 vezes.
-    for (let i = 0; i < quant; i++){
+    for (let i = 0; i < 20; i++){
       coin.flip()
       results.push (coin.toString())
     }
     // Depois que o seu loop terminar, exiba o resultado na página no formato de TEXTO.
     // Além de exibir os resultados na página, não esqueça
-    const resultado = document.createElement("div")
-    const classe = document.createAttribute("resultado")
-    .appendChild()
-    body.appendChild(results)
-    resultado.innerHTML('${results}')
-    return results
     
+    const resultado = document.createElement("div")
+    document.body.appendChild(resultado)
+    resultado.classList.add('results')
+    const titulo = document.createElement('h3')
+    titulo.classList.add('textoResultado')
+    titulo.innerHTML = 'Resultado 1: '
+    resultado.appendChild(titulo)
+    const texto = document.createElement('p')
+    texto.classList.add('paragrafo')
+    texto.innerHTML = results.toString().replace(/,/gi, ', ')
+    resultado.appendChild(texto)
+
+    return results
+   
   }
+  display20Flips()
   
-  function display20Images(quant) {
+  function display20Images() {
     const results = [];
     // Use um loop para arremessar a moeda 20 vezes.
-    for (let i = 0; i < quant; i++) {
-      
+    for (let i = 0; i < 20; i++) {
+      coin.flip()
+      coin.toString()
+      results.push (coin.toHTML())
   }
-
-  
   
     // Depois que o seu loop terminar, exiba o resultado na página no formato de IMAGEM.
     // Além de exibir os resultados na página, não esqueça
@@ -67,3 +92,4 @@ const coin = {
     return results
     
   }
+  display20Images()
